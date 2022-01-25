@@ -18,6 +18,7 @@ public class Arrow : MonoBehaviour
     {
         arrowRigidbody = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<PlayerMovement>();
+        
         xSpeed = player.transform.localScale.x * arrowSpeed;
     }
 
@@ -32,7 +33,7 @@ public class Arrow : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            FindObjectOfType<LÝttleEnemyMovement>().TakeDamage(arrowDamage);
+            
         }
         Destroy(gameObject, 2f);
         
