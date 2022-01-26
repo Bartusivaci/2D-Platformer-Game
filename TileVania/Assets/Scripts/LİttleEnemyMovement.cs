@@ -48,4 +48,14 @@ public class LİttleEnemyMovement : MonoBehaviour
     {
         transform.localScale = new Vector2(-(Mathf.Sign(littleEnemyRigidbody.velocity.x)), 1f);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Arrow")
+        {
+            Arrow arrow = collision.gameObject.GetComponent<Arrow>();
+            TakeDamage(arrow.GetDamage());
+        }
+    }
+
 }
