@@ -9,9 +9,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float runSpeed = 10f;
     [SerializeField] float jumpSpeed = 25f;
     [SerializeField] float climbSpeed = 5f;
+    [SerializeField] float shootRate = 2f;
     [SerializeField] Vector2 deathKick = new Vector2(20f, 20f);
     [SerializeField] GameObject arrow;
     [SerializeField] Transform bow;
+    
 
     Vector2 moveInput;
     Rigidbody2D playerRigid;
@@ -20,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     BoxCollider2D playerFeetCollider;
     float gravityScaleAtStart;
     bool isAlive = true;
+    float nextShootTime = 0f;
+
 
     void Start()
     {
@@ -43,8 +47,15 @@ public class PlayerMovement : MonoBehaviour
     void OnFire(InputValue value)
     {
         if (!isAlive) { return; }
-        playerAnimator.SetTrigger("isShooting");
-        Instantiate(arrow, bow.position, transform.rotation);
+
+        if(Time.time >= nextShootTime)
+        {
+            playerAnimator.SetTrigger("isShooting");
+            Instantiate(arrow, bow.position, transform.rotation);
+
+            nextShootTime = Time.time + 1f / shootRate;
+        }
+        
 
     }
 
@@ -110,5 +121,20 @@ public class PlayerMovement : MonoBehaviour
             playerRigid.velocity = deathKick;
             StartCoroutine(FindObjectOfType<GameSession>().ProcessPlayerDeath());
         }
+    }
+
+    public void DieAnotherWay()
+    {
+        
+        isAlive = false;
+        playerAnimator.SetTrigger("Death");
+        playerRigid.velocity = deathKick;
+        StartCoroutine(FindObjectOfType<GameSession>().ProcessPlayerDeath());
+        
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
     }
 }
