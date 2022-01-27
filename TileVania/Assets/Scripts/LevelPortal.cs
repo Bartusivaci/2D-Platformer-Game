@@ -19,6 +19,9 @@ public class LevelPortal : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         yield return new WaitForSecondsRealtime(levelLoadDelay);
+
+        FindObjectOfType<ScenePersist>().ResetScenePersist();
+
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
 }
