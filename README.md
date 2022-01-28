@@ -4,10 +4,15 @@
 Omicron's Dungeon is a 2D Platformer game. Your goal is to find portals at the end of the levels and move on to new ones. You have 20 lives so use them wisely because you get one-shotted from water, spikes and various enemies ( also bosses ! ). Don't forget to pick up the coins along the way :)
 
 HOW TO CONTROL :
+
 A / D Keys to RUN right and left 
+
 W / S Keys to CLIMB up and down
+
 Spacebar to JUMP
+
 LMB (Left Mouse Button) to SHOOT an arrow
+
 
 CREDITS :
 
