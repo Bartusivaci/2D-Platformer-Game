@@ -9,6 +9,7 @@ public class Wizard : MonoBehaviour
 	public float attackRange = 1.46f;
 	public LayerMask playerLayer;
 	public HealthBar healtBar;
+	public AudioClip fireSFX;
 
 	[SerializeField] float maxHealth = 500f;
 
@@ -78,6 +79,8 @@ public class Wizard : MonoBehaviour
 
 	public void Attack()
     {
+		AudioSource.PlayClipAtPoint(fireSFX, transform.position);
+		
 		Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
 		foreach(Collider2D players in hitPlayer)
