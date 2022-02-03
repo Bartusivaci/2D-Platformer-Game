@@ -28,7 +28,7 @@ Omicron's Dungeon is a 2D Platformer game. Your goal is to find portals at the e
 
 ## LINK TO PLAY:
 
-[![forthebadge](https://user-images.githubusercontent.com/86726474/152202898-9a1a4f65-3b9f-4b23-965c-1f6d9f90cdea.svg)](https://simmer.io/@bartu/omicron-s-dungeon)
+[<img src="https://cms.simmer.io/content/images/2019/08/simmer-badge-super-high-resolution-2.png" width=200px>](https://simmer.io/@bartu/omicron-s-dungeon)
 
 ## CREDITS:
 
